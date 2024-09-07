@@ -4,25 +4,23 @@ const int servoPin = 9;
 
 Servo myServo;
 
-const int openAngle = 130;
-const int closedAngle = 0;
+const int openAngle = 180;
+const int closedAngle = 90;
 
 void setup() {
   pinMode(irSensorPin, INPUT);
-
   myServo.attach(servoPin);
-
   myServo.write(closedAngle);
 }
 
 void loop() {
   int sensorValue = digitalRead(irSensorPin);
-
+  myServo.write(closedAngle);
   if (sensorValue == HIGH) {
     myServo.write(openAngle);
-    delay(5000); 
+    delay(1000); 
   }
-  myServo.write(closedAngle); 
+   
 
-  delay(1000);
+  delay(5000);
 }
